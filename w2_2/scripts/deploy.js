@@ -13,7 +13,7 @@ async function main(){
     console.log(`Teacher contract deployed on ${teacher.address}
     it's owner is ${await teacher.owner()}`);
     
-    const [owner,otherAccount] = await hre.ethers.getSigners();
+    const [_,otherAccount] = await hre.ethers.getSigners();
 
     const Student = await hre.ethers.getContractFactory("Student");
     const student = await Student.connect(otherAccount).deploy(name,teacher.address);
