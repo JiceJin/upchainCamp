@@ -17,7 +17,6 @@
 ## Contracts
 ## Teacher.sol
 ```
-Teacher
 
 // SPDX-License-Identifier: GPL-3.0
 
