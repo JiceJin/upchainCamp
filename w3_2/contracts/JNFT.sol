@@ -1579,6 +1579,9 @@ contract JNFT  is ERC721URIStorage{
         _mint(to,currentId);
         _setTokenURI(currentId,tokenURI);
         _tokenId.increment();
+        emit showcurrentID(currentId);
         return currentId;
     }
+
+    event showcurrentID(uint256 currentId);
 }
