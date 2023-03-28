@@ -2095,7 +2095,7 @@ contract proxyToken {
         _owner = msg.sender;
     }
 
-    fallback() external payable{
+    fallback() external payable{//这部分记得要注释掉
         // (bool success,bytes memory data) = _logic.delegatecall(msg.data);
         // require(success,"delegatecall fail");
         // success = abi.decode(data,(bool));

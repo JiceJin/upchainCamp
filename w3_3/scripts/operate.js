@@ -11,46 +11,52 @@ async function main(){
 
     // tx = await (await proxyToken.mint(first.address,1000)).wait();
 
-    tx = await (await proxyToken.transferWithCallback(second.address,500)).wait();
+                // tx = await (await proxyToken.transferWithCallback(second.address,500)).wait();
 
-    tx = await proxyToken.balanceOf(first.address);
-    receipt = await tx.wait();
-    console.log(receipt.events.find(event => {
-            return event.event === 'showbalance'
-        }).args["balance"]);
+                // tx = await proxyToken.balanceOf(first.address);
+                // receipt = await tx.wait();
+                // console.log(receipt.events.find(event => {
+                //         return event.event === 'showbalance'
+                //     }).args["balance"]);
 
-    tx = await proxyToken.balanceOf(second.address);
-    receipt = await tx.wait();
-    console.log(receipt.events.find(event => {
-            return event.event === 'showbalance'
-        }).args["balance"]);
+                // tx = await proxyToken.balanceOf(second.address);
+                // receipt = await tx.wait();
+                // console.log(receipt.events.find(event => {
+                //         return event.event === 'showbalance'
+                //     }).args["balance"]);
 
-    // tx = await (await proxyToken.transfer(second.address,500)).wait();
-    // console.log(tx.events.find(event => {
-    //         return event.event === 'showtransfer'
-    //     }).args["success"]);
+    let tx = {
+        to: 
+    }
 
 
-    // tx = await (await proxyToken.balanceOf(first.address)).wait();
 
-    // console.log(tx.events.find(event => {
-    //         return event.event === 'showbalance'
-    //     }).args["balance"]);
 
-    
-    // console.log(tx.events.find(event=>{
-    //     return event.event === 'Transfer';
-    // }).args[to],tx.events.find(event=>{
-    //     return event.event === 'Transfer';
-    // }).args[amount]);
-    
+    // const transaction = await contract['safeTransferFrom(address,address,uint256)'](account, to, _tokenId);
+    // return await transaction.wait();
+    /*  星光
+        const transaction = await contract['safeTransferFrom(address,address,uint256)'](account, to, _tokenId);
+        return await transaction.wait();
 
-    // tx = await proxyToken.balanceOf(first.address);
-    // let receipt = await tx.wait();
-    // console.log(receipt.events.find(event => {
-    //         return event.event === 'showbalance'
-    //     }).args["balance"]);
+        Azleal
+        let tx ={
+                to: bank.address,
+                value: amount,
+                data: "0x12345678"
+            }
 
+        星光
+        这样去调用 不存在的
+
+        Azleal
+        await deployer.sendTransaction(tx)
+
+        星光
+        contract('xxxxxx')()
+
+        星光
+        xxx 明文瞎写
+    */
 }
 
 main().catch((error)=>{
