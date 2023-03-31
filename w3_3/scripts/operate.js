@@ -25,9 +25,6 @@ async function main(){
                 //         return event.event === 'showbalance'
                 //     }).args["balance"]);
 
-    let tx = {
-        to: 
-    }
 
 
 

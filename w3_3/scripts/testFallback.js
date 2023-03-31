@@ -7,25 +7,28 @@ async function main(){
     const token = await hre.ethers.getContractAt("token","0xe7f1725e7734ce288f8367e1bb143e90bb3f0512");
     const tokenV2 = await hre.ethers.getContractAt("tokenV2","0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0");
 
-    // tx = {
-    //     to: proxyToken.address,
-    //     value: 0,
-    //     data: "0x40c10f19000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb9226600000000000000000000000000000000000000000000000000000000000003e8"
-    // }
-    // result = await first.sendTransaction(tx);
-
+    //mint 前
+    transaction = await (await proxyToken.balanceOf(first.address)).wait();
+    console.log(transaction.events.find((event)=>{
+        return event.event == 'showbalance';
+    }).args["balance"]);
+    //mint 
     tx = {
         to: proxyToken.address,
         value: 0,
-        data: "0x70a08231000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb92266"
+        data: "0x40c10f19000000000000000000000000f39fd6e51aad88f6f4ce6ab8827279cfffb922660000000000000000000000000000000000000000000000000000000000000064"
     }
     result =await( await first.sendTransaction(tx)).wait();
-    console.log(result.logs[0].topics);
+    console.log(result);
 
-
-
-    // const transaction = await contract['safeTransferFrom(address,address,uint256)'](account, to, _tokenId);
-    // return await transaction.wait();
+    //mint 后
+    transaction = await (await proxyToken.balanceOf(first.address)).wait();
+    console.log(transaction.events.find((event)=>{
+        return event.event == 'showbalance';
+    }).args["balance"]);
+    //测试过后，没有用
+    // const transaction = await proxyToken['mint(address,uint256)'](first.address,100);
+    // console.log(await transaction.wait());
     /*  星光
         const transaction = await contract['safeTransferFrom(address,address,uint256)'](account, to, _tokenId);
         return await transaction.wait();

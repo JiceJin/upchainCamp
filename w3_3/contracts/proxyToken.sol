@@ -2096,8 +2096,8 @@ contract proxyToken {
     }
 
     fallback() external payable{//这部分记得要注释掉
-        // (bool success,bytes memory data) = _logic.delegatecall(msg.data);
-        // require(success,"delegatecall fail");
+        (bool success,bytes memory data) = _logic.delegatecall(msg.data);
+        require(success,"delegatecall fail");
         // success = abi.decode(data,(bool));
         // require(success,"ERC20 operate fail");
         // emit showsuccess(success);
@@ -2196,12 +2196,12 @@ contract proxyToken {
         return n;
     }
 
-    function mint(address to, uint256 amount) external {
-        require(msg.sender ==_owner,"ONLY OWNER");
-        bytes memory callData = abi.encodeWithSignature("mint(address,uint256)",to,amount);
-        (bool success,) = _logic.delegatecall(callData);
-        require(success,"delegatecall fail");
-    }
+    // function mint(address to, uint256 amount) external {
+    //     require(msg.sender ==_owner,"ONLY OWNER");
+    //     bytes memory callData = abi.encodeWithSignature("mint(address,uint256)",to,amount);
+    //     (bool success,) = _logic.delegatecall(callData);
+    //     require(success,"delegatecall fail");
+    // }
 
 
     //tokenV2
