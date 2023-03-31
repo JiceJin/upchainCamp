@@ -6,7 +6,7 @@ hardhat文件夹里有合约，在该文件夹中启动hardhat测试网并部署
 
 vue-backend文件夹里，在src中有打印日志的几个js文件，其中后缀带self的是我写的。<br>
 
-vue-backend/vue-project文件夹里，是我该写的前端页面，能够实现查看用户的ERC721持有量，并且能够mint（只有owner）<br>
+vue-backend/vue-project文件夹里，是我改写的前端页面，能够实现查看用户的ERC721持有量，并且能够mint（只有owner）<br>
 
 ## 页面:<br>
 
