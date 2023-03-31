@@ -231,7 +231,7 @@ export default {
         <br /> <div>
           <h3>铸造</h3>
           <input type="text" v-model="mint_to" />
-          <button @click="mint"> 授权 </button>
+          <button @click="mint"> mint </button>
         </div>
     <div>
 
